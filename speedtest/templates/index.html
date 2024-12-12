@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Test</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c3c;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #0d112b;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-gap: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sidebar div {
+            padding: 10px;
+            background-color: #1e2448;
+            border-radius: 10px;
+        }
+        .main {
+            text-align: center;
+        }
+        .speedometer {
+            position: relative;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            border: 10px solid #ff6a00;
+            border-radius: 50%;
+        }
+        .speedometer h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .metrics div {
+            background-color: #1e2448;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100px;
+        }
+        .live-chat {
+            background-color: #1e2448;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer {
+            text-align: right;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div>IP Address: {{ ip_address }}</div>
+            <div>Type: {{ connection_type }}</div>
+            <div>Provider: {{ provider }}</div>
+            <div>OS: {{ operating_system }}</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <h1>Speed Test</h1>
+            <div class="speedometer">
+                <h1>{{ download_speed }}</h1>
+            </div>
+            <p>Ping: {{ ping }} ms</p>
+            <div class="metrics">
+                <div>
+                    <h2>Download</h2>
+                    <p>{{ download_speed }} Mbps</p>
+                </div>
+                <div>
+                    <h2>Upload</h2>
+                    <p>{{ upload_speed }} Mbps</p>
+                </div>
+                <div>
+                    <h2>Ping</h2>
+                    <p>{{ ping }} ms</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
